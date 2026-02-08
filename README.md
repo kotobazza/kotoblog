@@ -9,11 +9,13 @@ RESTful API for blog posting (is made for readmap.sh project)
 + [X] Update an existing blog post
 + [X] Delete an existing blog post
 + [X] Get a single post
++ [X] Get all posts
+  + needs paging
 + [ ] Filter posts by a search term
   + [ ] Creation/update date
-  + [ ] Title
+  + [X] Title // marked done as unneeded - titles already unique
   + [ ] Inner content
-  + [ ] Category
+  + [X] Category
 
 
 Uses Spring Boot (Web/Data JPA) + PostgreSQL container

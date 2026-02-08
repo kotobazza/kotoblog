@@ -1,15 +1,13 @@
 package com.kotobazza.kotoblog.posts;
 
-import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController("/posts")
 public class PostsController {
-    private PostsService service;
+    private final PostsService service;
 
     public PostsController(PostsService service){
         this.service = service;
@@ -49,6 +47,20 @@ public class PostsController {
     }
 
 
+    @GetMapping("/posts")
+    public Page<Post> getPosts(
+            @RequestParam(defaultValue="0") int page,
+            @RequestParam(defaultValue="10") int size,
+            @RequestParam(required = false) List<String> categories
+    ){
+        if(categories!= null && !categories.isEmpty()){
+            if(categories.size() == 1){
+                return service.getAllByCategoryPaging(categories.get(0), page, size);
+            }
+            return service.getAllByCategoriesPaging(categories, page, size);
+        }
+        return service.getAllByPaging(page, size);
+    }
 
 
 

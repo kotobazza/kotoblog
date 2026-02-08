@@ -4,7 +4,12 @@ import com.kotobazza.kotoblog.posts.exceptions.PostAlreadyExistsException;
 import com.kotobazza.kotoblog.posts.exceptions.UnsafePostOrTextException;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 
 @Service
@@ -57,6 +62,26 @@ public class PostsService {
         return repo.findById(postId).orElseThrow(() -> new EntityNotFoundException("Post with this identifier doesn't exist: " + postId.toString()));
     }
 
+    public Page<Post> getAllByPaging(int page, int pageSize){
+        Pageable pageable = PageRequest.of(page, pageSize);
+
+        return repo.findAll(pageable);
+    }
+
+
+    public Page<Post> getAllByCategoryPaging(String category, int page, int pageSize){
+        Pageable pageable = PageRequest.of(page, pageSize);
+
+        return repo.findByCategoriesContaining(category, pageable);
+
+    }
+
+    public Page<Post> getAllByCategoriesPaging(List<String> categories, int page, int pageSize){
+        Pageable pageable = PageRequest.of(page, pageSize);
+
+        return repo.findByCategoriesIn(List.of(categories), pageable);
+
+    }
 
 
 

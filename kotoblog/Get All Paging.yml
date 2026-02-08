@@ -1,0 +1,25 @@
+info:
+  name: Get All Paging
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: http://{{baseUrl}}/posts?page=0&size=10&sortDirection=DESC
+  params:
+    - name: page
+      value: "0"
+      type: query
+    - name: size
+      value: "10"
+      type: query
+    - name: sortDirection
+      value: DESC
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
