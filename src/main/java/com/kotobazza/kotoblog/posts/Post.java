@@ -3,13 +3,11 @@ package com.kotobazza.kotoblog.posts;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name="users")
@@ -67,6 +65,12 @@ public class Post {
         }
         return isRemoved;
     }
+
+    public void setCategories(List<String> categories){
+        this.categories = categories.stream().map(String::toLowerCase).toList();
+        updatePost();
+    }
+
 
     public void setInnerText(String innerText) {
         this.innerText = innerText;
