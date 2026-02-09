@@ -11,8 +11,8 @@ RESTful API for blog posting (is made for readmap.sh project)
 + [X] Get a single post
 + [X] Get all posts
   + needs paging
-+ [ ] Filter posts by a search term
-  + [ ] Creation/update date
++ [X] Filter posts by a search term
+  + [X] Creation/update date (update date is marked done)
   + [X] Title // marked done because unneeded - titles already unique and i can't filter by them
   + [X] Inner content / title
   + [X] Category
