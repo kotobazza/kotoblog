@@ -87,7 +87,9 @@ public class PostsService {
     public Post setCategoriesToPost(Long id, List<String> newCategories) {
         Post existing = repo.findById(id).orElseThrow(() -> new EntityNotFoundException("Post with this identifier doesn't exist: " + id));
 
+        //TODO: shouldn't be here
         existing.setCategories(newCategories);
+
 
         return repo.save(existing);
     }
@@ -95,12 +97,8 @@ public class PostsService {
     public Post addCategoryToPost(Long id, String category) {
         Post existing = repo.findById(id).orElseThrow(() -> new EntityNotFoundException("Post with this identifier doesn't exist: " + id));
 
-        List<String> existingCategories = existing.getCategories();
+        existing.addCategory(category);
 
-        if(!existingCategories.contains(category))
-            existingCategories.add(category);
-
-        existing.setCategories(existingCategories);
         return repo.save(existing);
 
     }
@@ -108,11 +106,7 @@ public class PostsService {
     public Post removeCategoryFromPost(Long id, String category) {
         Post existing = repo.findById(id).orElseThrow(() -> new EntityNotFoundException("Post with this identifier doesn't exist: " + id));
 
-        List<String> existingCategories = existing.getCategories();
-
-        existingCategories.remove(category);
-
-        existing.setCategories(existingCategories);
+        existing.deleteCategory(category);
         return repo.save(existing);
 
     }
