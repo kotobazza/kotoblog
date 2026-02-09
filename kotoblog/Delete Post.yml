@@ -1,5 +1,5 @@
 info:
-  name: Delete
+  name: Delete Post
   type: http
   seq: 5
 
