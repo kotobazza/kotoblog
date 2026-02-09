@@ -9,6 +9,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 
@@ -114,6 +115,17 @@ public class PostsService {
     public Page<Post> getAllBySearchTerm(String term, int page, int pageSize){
         Pageable pageable = PageRequest.of(page, pageSize);
 
-        return repo.findPostBySearchText(term, pageable);
+        return repo.findPostsBySearchText(term, pageable);
+    }
+
+
+    public Page<Post> getAllWithCreationBetween(LocalDateTime after, LocalDateTime before, int page, int pageSize){
+        if(before.isAfter(after)){
+            throw new IllegalArgumentException("After time is defined 'before' the before time");
+        }
+
+        Pageable pageable = PageRequest.of(page, pageSize);
+
+        return repo.findPostsByCreatedAtBetween(after, before, pageable);
     }
 }

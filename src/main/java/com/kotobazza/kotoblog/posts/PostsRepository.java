@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
 
@@ -31,8 +32,10 @@ public interface PostsRepository extends JpaRepository<Post, Long> {
             """,
             nativeQuery = true
     )
-    Page<Post> findPostBySearchText(@Param("searchTerm") String searchTerm, Pageable pageable);
+    Page<Post> findPostsBySearchText(@Param("searchTerm") String searchTerm, Pageable pageable);
 
+
+    Page<Post> findPostsByCreatedAtBetween(LocalDateTime createdAtAfter, LocalDateTime createdAtBefore, Pageable pageable);
 }
 
 
