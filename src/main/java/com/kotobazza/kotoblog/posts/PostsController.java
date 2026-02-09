@@ -71,6 +71,23 @@ public class PostsController {
     }
 
 
+    @PostMapping("/posts/{id}/categories")
+    public Post addCategoryToPost(
+            @PathVariable Long id,
+            @RequestBody String category
+    ){
+        return service.addCategoryToPost(id, category);
+    }
+
+
+    @DeleteMapping("/posts/{id}/categories")
+    public Post deleteCategoryFromPost(
+            @PathVariable Long id,
+            @RequestParam(required=true) String category
+    ){
+        return service.removeCategoryFromPost(id, category);
+    }
+
 
 
 
