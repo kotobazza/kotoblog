@@ -84,7 +84,13 @@ public class PostsService {
     }
 
 
+    public Post setCategoriesToPost(Long id, List<String> newCategories) {
+        Post existing = repo.findById(id).orElseThrow(() -> new EntityNotFoundException("Post with this identifier doesn't exist: " + id));
 
+        existing.setCategories(newCategories);
+
+        return repo.save(existing);
+    }
 
 
 

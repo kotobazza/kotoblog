@@ -62,6 +62,15 @@ public class PostsController {
         return service.getAllByPaging(page, size);
     }
 
+    @PatchMapping("/posts/{id}/categories")
+    public Post massUpdateCategories(
+            @PathVariable Long id,
+            @RequestBody List<String> newCategories
+    ){
+        return service.setCategoriesToPost(id, newCategories);
+    }
+
+
 
 
 

@@ -1,0 +1,18 @@
+info:
+  name: BatchUpdate
+  type: http
+  seq: 9
+
+http:
+  method: PATCH
+  url: http://{{baseUrl}}/posts/2/categories
+  body:
+    type: json
+    data: '["Hello", "Time", "Tech"]'
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
