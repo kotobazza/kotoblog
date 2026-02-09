@@ -1,0 +1,19 @@
+info:
+  name: Delete Category
+  type: http
+  seq: 1
+
+http:
+  method: DELETE
+  url: http://{{baseUrl}}/posts/1/categories?category=Tech
+  params:
+    - name: category
+      value: Tech
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,19 @@
+info:
+  name: Get All By Term
+  type: http
+  seq: 10
+
+http:
+  method: GET
+  url: http://{{baseUrl}}/posts/fulltext?text=2
+  params:
+    - name: text
+      value: "2"
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

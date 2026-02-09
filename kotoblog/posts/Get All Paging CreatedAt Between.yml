@@ -1,0 +1,25 @@
+info:
+  name: Get All Paging CreatedAt Between
+  type: http
+  seq: 11
+
+http:
+  method: GET
+  url: http://{{baseUrl}}/posts?page=0&size=10&since =2024-01-01T10:00:00Z
+  params:
+    - name: page
+      value: "0"
+      type: query
+    - name: size
+      value: "10"
+      type: query
+    - name: "since "
+      value: 2024-01-01T10:00:00Z
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

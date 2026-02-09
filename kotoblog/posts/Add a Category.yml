@@ -1,0 +1,18 @@
+info:
+  name: Add a Category
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: http://{{baseUrl}}/posts/1/categories
+  body:
+    type: text
+    data: Tech
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
