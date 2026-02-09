@@ -26,10 +26,10 @@ Uses Spring Boot (Web/Data JPA) + PostgreSQL container
 1. Create .env file for configurations (example one in `docs/`)
 
 ```bash
-  cp docs/example.env .env
+cp docs/example.env .env
 ```
 
-2. Start containers (the postgres is needed)
+2. Start containers (the postgres is needed) (of course you can use just docker-compose)
 
 ```bash
 podman-compose up
