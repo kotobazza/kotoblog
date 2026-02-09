@@ -21,3 +21,19 @@ RESTful API for blog posting (is made for readmap.sh project)
 
 Uses Spring Boot (Web/Data JPA) + PostgreSQL container
 
+
+### Quick-Start
+1. Create .env file for configurations (example one in `docs/`)
+
+```bash
+  cp docs/example.env .env
+```
+
+2. Start containers (the postgres is needed)
+
+```bash
+podman-compose up
+```
+
+3. Pass the .env file into application
+I use Intellij, so i just pass Environment Variables file through runner configurations
