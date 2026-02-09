@@ -54,14 +54,14 @@ public class Post {
     }
 
     public void addCategory(String category){
-        if(!categories.contains(category)){
-            categories.add(category);
+        if(!categories.contains(category.toLowerCase())){
+            categories.add(category.toLowerCase());
         }
         updatePost();
     }
 
     public boolean deleteCategory(String category){
-        boolean isRemoved = categories.remove(category);
+        boolean isRemoved = categories.remove(category.toLowerCase());
         if(isRemoved){
             updatePost();
         }
