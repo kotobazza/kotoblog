@@ -16,6 +16,7 @@ RESTful API for blog posting (is made for readmap.sh project)
   + [X] Title // marked done because unneeded - titles already unique and i can't filter by them
   + [ ] Inner content
   + [X] Category
++ [X] Add/Delete/Batch categories for a post
 
 
 Uses Spring Boot (Web/Data JPA) + PostgreSQL container
