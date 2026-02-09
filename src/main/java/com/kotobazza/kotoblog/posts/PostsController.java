@@ -15,6 +15,10 @@ public class PostsController {
         service.addNewPost(new PostTitleAndTextDTO("What is it?", "Here it is"));
         service.addNewPost(new PostTitleAndTextDTO("What is it12?", "Here it is33"));
         service.addNewPost(new PostTitleAndTextDTO("What is it323?", "Here it is2332"));
+
+        service.setCategoriesToPost(1L, List.of("tech", "test", "main"));
+        service.setCategoriesToPost(2L, List.of("tech", "hello", "main"));
+        service.setCategoriesToPost(3L, List.of("hello", "test", "main"));
     }
 
 
