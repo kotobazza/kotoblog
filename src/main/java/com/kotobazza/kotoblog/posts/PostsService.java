@@ -110,4 +110,10 @@ public class PostsService {
         return repo.save(existing);
 
     }
+
+    public Page<Post> getAllBySearchTerm(String term, int page, int pageSize){
+        Pageable pageable = PageRequest.of(page, pageSize);
+
+        return repo.findPostBySearchText(term, pageable);
+    }
 }

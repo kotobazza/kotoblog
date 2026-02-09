@@ -93,6 +93,16 @@ public class PostsController {
     }
 
 
+    @GetMapping("/posts/fulltext")
+    public Page<Post> findAllPostsByFulltextSearch(
+            @RequestParam(defaultValue="0") int page,
+            @RequestParam(defaultValue="10") int size,
+            @RequestParam(required = true) String text
+    ){
+        return service.getAllBySearchTerm(text, page, size);
+    }
+
+
 
 
 
