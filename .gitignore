@@ -40,3 +40,7 @@ build/
 
 ### IntellijIDEAD ###
 .idea/
+
+
+### Project ###
+.env
