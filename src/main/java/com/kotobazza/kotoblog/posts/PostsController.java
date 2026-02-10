@@ -1,10 +1,11 @@
 package com.kotobazza.kotoblog.posts;
 
+
 import org.springframework.data.domain.Page;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
+import jakarta.validation.constraints.*;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -100,7 +101,8 @@ public class PostsController {
     @PostMapping("/posts/{id}/categories")
     public Post addCategoryToPost(
             @PathVariable Long id,
-            @RequestBody String category
+
+            @RequestBody @Pattern(regexp = "^(?!.*[\\[\\]]).*$", message = "String must not contain characters [ and ]. For multiple categories update use PATCH-method") String category
     ){
         return service.addCategoryToPost(id, category);
     }
